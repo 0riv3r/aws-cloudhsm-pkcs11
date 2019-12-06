@@ -1,0 +1,68 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "aes_cbc_enc",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/src/encrypt/aes_cbc_enc",
+            "args": ["--pin", "crypto_user:Cyber123!", "3ee0870404e76b4c8f37da936ec78f2a0583cf9a8bc62fe489887de1527e278b"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build/src/encrypt",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "aes_cbc_dec",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/src/encrypt/aes_cbc_dec",
+            "args": ["--pin", "crypto_user:Cyber123!", "8FBA9338D29CA726239A57870FA3DF5887A11187CE35738106AF12DF7B36E4E7D9DDB5EC2AD50085EB6E1C25A80830611D5444F2A9B48566C1380052E7E7AE7C0651B604B2979F51EA29DAE38AB83810"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build/src/encrypt",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "aes_cbc",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/src/encrypt/aes_cbc",
+            "args": ["--pin", "crypto_user:Cyber123!", "3ee0870404e76b4c8f37da936ec78f2a0583cf9a8bc62fe489887de1527e278b"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build/src/encrypt",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ]
+}
