@@ -3,7 +3,7 @@
  */
 
 #include <stdio.h>
-#include "/home/ubuntu/pkcs11/aws-cloudhsm-pkcs11-examples/include/pkcs11/v2.40/cryptoki.h"
+#include "/home/ubuntu/aws-cloudhsm-pkcs11/include/pkcs11/v2.40/cryptoki.h"
 #include "aes.h"
 
 /**

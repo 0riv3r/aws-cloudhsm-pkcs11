@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <inttypes.h>
-#include "/home/ubuntu/pkcs11/aws-cloudhsm-pkcs11-examples/include/pkcs11/v2.40/cryptoki.h"
+#include "/home/ubuntu/aws-cloudhsm-pkcs11/include/pkcs11/v2.40/cryptoki.h"
 #include "aes.h"
 
 CK_BYTE_PTR hexstr_to_char(const char* hexstr) // https://gist.github.com/xsleonard/7341172
@@ -17,11 +17,11 @@ CK_BYTE_PTR hexstr_to_char(const char* hexstr) // https://gist.github.com/xsleon
     CK_BYTE_PTR chrs = (CK_BYTE_PTR)malloc((final_len+1) * sizeof(*chrs));
     for (size_t i=0, j=0; j<final_len; i+=2, j++){
         chrs[j] = (hexstr[i] % 32 + 9) % 25 * 16 + (hexstr[i+1] % 32 + 9) % 25;
-        printf("%d",chrs[j]);
+        // printf("%d",chrs[j]);
     }
     chrs[final_len] = '\0';
-    size_t size = sizeof(chrs) / sizeof(chrs[0]); 
-    printf("chrs length: %lu\n", size);
+    // size_t size = sizeof(chrs) / sizeof(chrs[0]); 
+    // printf("chrs length: %lu\n", size);
     return chrs;
 }
 
@@ -75,8 +75,10 @@ CK_RV aes_cbc_sample(CK_SESSION_HANDLE session, CK_BYTE_PTR ciphertext, CK_ULONG
         goto done;
     }
 
-    printf("Decrypted ciphertext: %.*s\n", (int)decrypted_ciphertext_length, decrypted_ciphertext);
-    printf("Decrypted ciphertext length: %lu\n", decrypted_ciphertext_length);
+    // printf("Decrypted ciphertext: %.*s\n", (int)decrypted_ciphertext_length, decrypted_ciphertext);
+    // printf("Decrypted ciphertext length: %lu\n", decrypted_ciphertext_length);
+
+    printf("%.*s", (int)decrypted_ciphertext_length, decrypted_ciphertext);
 
 done:
     if (NULL != decrypted_ciphertext) {
@@ -108,13 +110,13 @@ int main(int argc, char **argv) {
     CK_BYTE_PTR hex_ciphertext = argv[3];
     CK_ULONG hex_ciphertext_length = strlen(hex_ciphertext);
     CK_ULONG ciphertext_length = hex_ciphertext_length / 2;
-    printf("Hex-Ciphertext: %s\n", hex_ciphertext);
-    printf("Hex-Ciphertext length: %lu\n", hex_ciphertext_length);
+    // printf("Hex-Ciphertext: %s\n", hex_ciphertext);
+    // printf("Hex-Ciphertext length: %lu\n", hex_ciphertext_length);
 
     CK_BYTE_PTR ciphertext = hexstr_to_char(hex_ciphertext);
 
     if (NULL != ciphertext) {
-        printf("\nEncrypt/Decrypt with AES CBC Pad\n");
+        // printf("\nEncrypt/Decrypt with AES CBC Pad\n");
         rv = aes_cbc_sample(session, ciphertext, ciphertext_length);
         if (CKR_OK != rv) {
             return rv;
